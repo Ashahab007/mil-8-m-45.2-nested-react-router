@@ -36,13 +36,13 @@ const router = createBrowserRouter([
 
       /* 10.1.1 using loader() */
       {
-        path: "/UserReactRouter",
+        path: "UserReactRouter",
         loader: () => fetch("https://jsonplaceholder.typicode.com/users"),
         Component: UserReactRouter,
       },
       // 10.2.2 as we need to pass the user2Promise as props so we create element instead of previously created component using
       {
-        path: "/User2ReactUse",
+        path: "User2ReactUse",
         element: (
           <Suspense fallback={<span>Loading . . . . . </span>}>
             <User2ReactUse user2Promise={user2Promise}></User2ReactUse>
@@ -52,7 +52,13 @@ const router = createBrowserRouter([
 
       // 12.0 requirement is create a show detail button to show the specific info of specific users dynamically that's why created a component first, then create the path dynamically from documentation of routing dynamic segments.
 
-      { path: "/users/:userId", Component: UserDetails }, // here, to show the details of every users we need uniq value which is id, so as per documentation we use /users/ which is static and :userId to make it dynamic. here (:) is used for dynamic value
+      {
+        path: "users/:userId",
+        // 13.0 loading() method to fetch the data and get the data by dynamic id that is created in path.
+        loader: ({ params }) =>
+          fetch(`https://jsonplaceholder.typicode.com/users/${params.userId}`),
+        Component: UserDetails,
+      }, // here, to show the details of every users we need uniq value which is id, so as per documentation we use /users/ which is static and :userId to make it dynamic. here (:) is used for dynamic value. এটা করা হয়েছে কারন আমরা loading() fetch data আনার জন্য dynamic ভাবে id টা ধরব।
     ],
   },
 ]);
