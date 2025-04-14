@@ -18,12 +18,14 @@ const Root = () => {
       {/* 6. Now import Link from react router to work as button which is same as href */}
       <div className="navigation-btn">
         {/* 9. Now use NavLink instead of Link. Because NavLink worked showing the active button. From documentation of NavLink it contains a hidden class active. By assigning styles in active u can change the active navigation button color. */}
-        {/* <Link to="/">Home</Link> */}
-        <NavLink to="/home">Home</NavLink>
-        {/* <Link to="/mobiles">Mobiles</Link> */}
-        <NavLink to="/mobiles">Mobiles</NavLink>
-        {/* <Link to="/laptops">Laptops</Link> */}
-        <NavLink to="/laptops">Laptops</NavLink>
+        {/* 6. <Link to="/">Home</Link> */}
+        <NavLink to="/home">Home</NavLink> {/*9.*/}
+        {/* 6. <Link to="/mobiles">Mobiles</Link> */}
+        <NavLink to="/mobiles">Mobiles</NavLink> {/*9.*/}
+        {/* 6. <Link to="/laptops">Laptops</Link> */}
+        <NavLink to="/laptops">Laptops</NavLink> {/*9.*/}
+        <NavLink to="/UserReactRouter">User 1</NavLink> {/*9.*/}
+        <NavLink to="/User2ReactUse">User 2</NavLink> {/*9.*/}
       </div>
       <div className="dynamic-container">
         {/* 8. created sidebar component */}

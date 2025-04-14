@@ -1,9 +1,13 @@
 .dynamic-container {
   display: flex;
-  gap: 100px;
-  justify-content: ;
+  gap: 30px;
   align-items: center;
   background-color: aqua;
+  height: 400px;
+}
+
+.dynamic-container aside {
+  width: 200px;
 }
 
 .navigation-btn {
