@@ -1,0 +1,38 @@
+import { Children, Component, StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import "./index.css";
+import App from "./App.jsx";
+import { createBrowserRouter, RouterProvider } from "react-router";
+import Root from "./components/Root/Root.jsx";
+import Home from "./components/Home/Home.jsx";
+import Mobiles from "./components/Mobiles/Mobiles.jsx";
+import Laptops from "./components/Laptops/Laptops.jsx";
+
+// 3.
+const router = createBrowserRouter([
+  {
+    path: "/",
+    Component: Root,
+    children: [
+      { index: true, Component: Home }, // যখন "/" এ থাকে তখন home কে দেখাব।
+      { path: "mobiles", Component: Mobiles }, //আর index এর ভেতরে অন্যকিছু তে গেলে mobiles দেখাবো।
+      { path: "laptops", Component: Laptops },
+    ],
+  },
+]);
+
+// 4. now pass the router as props to <RouterProvider>
+createRoot(document.getElementById("root")).render(
+  <StrictMode>
+    <RouterProvider router={router}></RouterProvider>
+    {/* <App /> */}
+  </StrictMode>
+);
+
+/*  5. now in browser search bar paste the following link
+ i. http://localhost:5173/
+ ii. http://localhost:5173/mobiles
+ iii. http://localhost:5173/laptops 
+
+ Now see that the header is fixed but mobiles, laptop page is changed
+ */

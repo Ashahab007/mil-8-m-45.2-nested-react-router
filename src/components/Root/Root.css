@@ -1,0 +1,7 @@
+.dynamic-container {
+  display: flex;
+  gap: 150px;
+  justify-content: ;
+  align-items: center;
+  background-color: aqua;
+}
