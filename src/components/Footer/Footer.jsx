@@ -7,6 +7,11 @@ const Footer = () => {
       <p>
         <span>© 2025 GitHub, Inc. Footer navigation. </span>
         <span>Do not share my personal information</span>
+        <br />
+        <span className="footer-socialmedia-btn">
+          <a href="/">Facebook</a>
+          <a href="/">LinkedIn</a>
+        </span>
       </p>
     </div>
   );

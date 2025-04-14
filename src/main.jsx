@@ -7,6 +7,7 @@ import Root from "./components/Root/Root.jsx";
 import Home from "./components/Home/Home.jsx";
 import Mobiles from "./components/Mobiles/Mobiles.jsx";
 import Laptops from "./components/Laptops/Laptops.jsx";
+import UnavilData from "./components/UnavilData/UnavilData.jsx";
 
 // 3.
 const router = createBrowserRouter([
@@ -14,8 +15,9 @@ const router = createBrowserRouter([
     path: "/",
     Component: Root,
     children: [
-      { index: true, Component: Home }, // যখন "/" এ থাকে তখন home কে দেখাব।
-      { path: "mobiles", Component: Mobiles }, //আর index এর ভেতরে অন্যকিছু তে গেলে mobiles দেখাবো।
+      { index: true, Component: UnavilData }, // যখন "/" এ থাকে তখন default ভাবে UnavilData component কে দেখাবে।
+      { path: "home", Component: Home }, //আর index এর ভেতরে অন্য data গুলো i.e home, mobiles, laptops onclick এর মাধ্যমে দেখবে।
+      { path: "mobiles", Component: Mobiles },
       { path: "laptops", Component: Laptops },
     ],
   },
