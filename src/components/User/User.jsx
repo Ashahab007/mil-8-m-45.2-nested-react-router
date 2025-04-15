@@ -6,14 +6,14 @@ const User = ({ user }) => {
   console.log(user);
   const { id, name, phone, email } = user;
 
-  const styleCard = {
+  const styleUser = {
     border: "1px solid red",
     padding: "10px",
     borderRadius: "10px",
     marginTop: "10px",
   };
   return (
-    <div style={styleCard}>
+    <div style={styleUser}>
       <h3>{name}</h3>
       <p>Phone: {phone}</p>
       <p>

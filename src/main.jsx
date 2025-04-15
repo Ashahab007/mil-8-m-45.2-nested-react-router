@@ -40,7 +40,7 @@ const router = createBrowserRouter([
         loader: () => fetch("https://jsonplaceholder.typicode.com/users"),
         Component: UserReactRouter,
       },
-      // 10.2.2 as we need to pass the user2Promise as props so we create element instead of previously created component using
+      // 10.2.2 as we need to pass the user2Promise as props so we create element instead of previously created component in definition.
       {
         path: "User2ReactUse",
         element: (
@@ -50,15 +50,20 @@ const router = createBrowserRouter([
         ),
       },
 
-      // 12.0 requirement is create a show detail button to show the specific info of specific users dynamically that's why created a component first, then create the path dynamically from documentation of routing dynamic segments.
+      // 12.0 requirement is create a show detail button to show the specific info of specific users dynamically that's why created a component first, then create the definition, then create the path dynamically from documentation of routing dynamic segments.
 
       {
         path: "users/:userId",
-        // 13.0 loading() method to fetch the data and get the data by dynamic id that is created in path.
-        loader: ({ params }) =>
-          fetch(`https://jsonplaceholder.typicode.com/users/${params.userId}`),
+        // 13.0 loader() method to fetch the data and get the data by dynamic id that is created in path.
+        loader: ({ params }) => {
+          console.log(params); //
+
+          return fetch(
+            `https://jsonplaceholder.typicode.com/users/${params.userId}`
+          );
+        },
         Component: UserDetails,
-      }, // here, to show the details of every users we need uniq value which is id, so as per documentation we use /users/ which is static and :userId to make it dynamic. here (:) is used for dynamic value. এটা করা হয়েছে কারন আমরা loading() fetch data আনার জন্য dynamic ভাবে id টা ধরব।
+      }, // here, to show the details of every users we need unique value which is id, so as per documentation we use /users/ which is static and :userId to make it dynamic. here (:) is used for dynamic value. এটা করা হয়েছে কারন আমরা loading() fetch data আনার জন্য dynamic ভাবে id টা ধরব। এখানে fetch এ userId এবং path এ ু userId same spelling রাখতে হবে। আর param টা use করা হয়েছে documentation অনুসারে। unique কোন কিছু ধরতে গেলে এই procedure এই করতে হবে।
     ],
   },
 ]);
