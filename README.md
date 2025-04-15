@@ -1,7 +1,7 @@
 <!--
 1. Create a component name root which will work as App.jsx
 2. In Root.jsx create the fixed component like header, footer.
-3. In main.jsx create the dynamic component using react createBrowserRouter and define the path with component or element
+3. In main.jsx create the dynamic component using react createBrowserRouter and define the path with component or element. But first, assign default path: '/', Component: Root (It is done for coonecting the Root component).
 4. Now pass the createBrowserRouter as props using react Data Router <RouterProvider>
 5. You can check manually by changing the path name i.e. mobiles, laptops in browser search bar.
 6. Created a dynamic buttons of mobiles, laptops etc using react API component Link but after that we will use react API component NavLink.
