@@ -14,7 +14,7 @@ import UserDetails from "./components/UserDetails/UserDetails.jsx";
 
 // 10. we will use here 2 types of data loading. The 10.1.0 is data loading method from react router and 10.2.0 is data loading from react router using use()
 
-// 10.1.0 data loading method from react router using loader() &useLoaderData()
+// 10.1.0 data loading method from react router using loader() & useLoaderData()
 
 // 10.2.0 data loading method using suspense from react use method using use() & suspense
 
@@ -23,7 +23,7 @@ const user2Promise = fetch("https://jsonplaceholder.typicode.com/users").then(
   (res) => res.json()
 );
 
-// 3.
+// 3. To create the dynamic component using react createBrowserRouter and define the path with component or element. This dynamic or changeable component will be changed using Outlet in Root.jsx file.
 const router = createBrowserRouter([
   {
     path: "/",
@@ -63,7 +63,7 @@ const router = createBrowserRouter([
           );
         },
         Component: UserDetails,
-      }, // here, to show the details of every users we need unique value which is id, so as per documentation we use /users/ which is static and :userId to make it dynamic. here (:) is used for dynamic value. এটা করা হয়েছে কারন আমরা loading() fetch data আনার জন্য dynamic ভাবে id টা ধরব। এখানে fetch এ userId এবং path এ ু userId same spelling রাখতে হবে। আর param টা use করা হয়েছে documentation অনুসারে। unique কোন কিছু ধরতে গেলে এই procedure এই করতে হবে।
+      }, // here, to show the details of every users we need unique value which is id, so as per react router documentation we use /users/ which is static and :userId to make it dynamic. here (:) is used for dynamic value. এটা করা হয়েছে কারন আমরা loading() fetch data আনার জন্য dynamic ভাবে id টা ধরব। এখানে fetch এ userId এবং path এ ু userId same spelling রাখতে হবে। আর param টা use করা হয়েছে documentation অনুসারে। unique কোন কিছু ধরতে গেলে এই procedure এই করতে হবে। Remember এখানে named path এর শুরুতে কোন "/" use করা হয় না।
     ],
   },
 ]);
